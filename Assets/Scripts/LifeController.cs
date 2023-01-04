@@ -46,6 +46,7 @@ public class LifeController : MonoBehaviour
                 if(lifes_current <=0)
                 {
                     StartCoroutine(Death_Time());
+                    GameManager.instance.vidas--;
                     
                 }
 
