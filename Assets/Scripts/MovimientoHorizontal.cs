@@ -31,9 +31,7 @@ public class MovimientoHorizontal : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        
-        //transform.position = transform.position + new Vector3(horizontal *Time.deltaTime*speed, 0);
-        //anim.SetBool("grounded", ground.grounded);
+       
         anim.SetBool("moving", horizontal != 0);
         if (horizontal >0)
         {

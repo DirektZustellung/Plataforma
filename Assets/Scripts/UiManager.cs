@@ -54,13 +54,7 @@ public class UiManager : MonoBehaviour
             }
             Time.timeScale = 1;
         }
-      /*  if(GameManager.instance.win)
-        {
-            GameManager.instance.GetComponent<MovimientoHorizontal>().enabled = false;
-            GameManager.instance.GetComponent<Salto>().enabled = false; 
-
-        }
-      */
+     
         if (GameManager.instance.finish)
         {
             winner();

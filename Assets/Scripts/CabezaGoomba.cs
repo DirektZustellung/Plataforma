@@ -27,14 +27,6 @@ public class CabezaGoomba : MonoBehaviour
             Destroy(goomba);
         }
     }
-   /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<Salto>().AutoJump();
-            GameManager.instance.puntuacion += GameManager.instance.puntosEnemgos;
-            Destroy(goomba);            
-        }
-    }*/
+  
 }
 

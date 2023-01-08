@@ -71,9 +71,9 @@ public class MovimientoAutomatico : MonoBehaviour
     }
     public void Muerte()
     {
-       // anim.SetBool("death", true);
+       
         StartCoroutine(Death_Corutine());
-        //Destroy(gameObject);
+       
     }
     IEnumerator Death_Corutine()
     {
