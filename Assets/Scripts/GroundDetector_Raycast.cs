@@ -31,13 +31,14 @@ public class GroundDetector_Raycast : MonoBehaviour
                 }
                 Debug.DrawRay(transform.position + originPoints[i], Vector3.down * hit.distance, Color.green);
                 grounded=true;
-                if(hit.collider.gameObject.tag == "Enemy")
+             /*   if(hit.collider.gameObject.tag == "Cabeza")
                 {
                     GetComponent<Salto>().AutoJump();
                     GameManager.instance.puntuacion += GameManager.instance.puntosEnemgos;
-                    hit.collider.GetComponent<MovimientoAutomatico>().Muerte();
+                    //hit.collider.GetComponent<MovimientoAutomatico>().Muerte();
+                    hit.collider.GetComponentInParent<MovimientoAutomatico>().Muerte();
                 }
-
+             */
             }
             if (!grounded)
             {
@@ -47,4 +48,5 @@ public class GroundDetector_Raycast : MonoBehaviour
         
         
     }
+   
 }

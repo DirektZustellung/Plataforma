@@ -9,6 +9,8 @@ TagManager:
   - Seta
   - Cubo
   - Door
+  - Flag
+  - Cabeza
   layers:
   - Default
   - TransparentFX

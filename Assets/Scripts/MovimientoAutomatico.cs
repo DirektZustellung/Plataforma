@@ -78,12 +78,20 @@ public class MovimientoAutomatico : MonoBehaviour
     IEnumerator Death_Corutine()
     {
         anim.SetBool("death", true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.0f);
         Destroy(gameObject);
     }
-    
-    
-        
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            collision.GetComponent<Salto>().AutoJump();
+            GameManager.instance.puntuacion += GameManager.instance.puntosEnemgos;
+            StartCoroutine(Death_Corutine());
+        }
+    }
+
+
 
 }

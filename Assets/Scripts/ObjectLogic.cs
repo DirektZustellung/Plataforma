@@ -7,6 +7,7 @@ public class ObjectLogic : MonoBehaviour
     public GameObject Explosion;
     public GameObject Cubo;
     
+    public AudioSource powerSource;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,13 @@ public class ObjectLogic : MonoBehaviour
             if (gameObject.tag == "Seta")
             {
                 GameManager.instance.powerUp = true;
+                powerSource.Play();
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
                 collision.gameObject.GetComponent<Animator>().SetBool("upgrading", GameManager.instance.powerUp);
                 collision.gameObject.GetComponent<PlayerConfig>().MarioConfig();
-                Destroy(gameObject);
+                Destroy(gameObject, 0.8f);
             }
             if (gameObject.tag == "Cubo" && GameManager.instance.powerUp)
             {
@@ -44,7 +49,18 @@ public class ObjectLogic : MonoBehaviour
                 StartCoroutine(PausaDoor());
 
             }
+            if (gameObject.tag == "Flag")
+            {
+                collision.gameObject.GetComponent<MovimientoHorizontal>().enabled = false;
+                collision.gameObject.GetComponent<Salto>().enabled = false;
+                GameManager.instance.win = true;
 
+            }
+            if (gameObject.tag == "Finish")
+            {
+                
+                GameManager.instance.finish = true;
+            }
 
         }
 

@@ -11,6 +11,7 @@ public class Salto : MonoBehaviour
     private bool isGrounded;
     private Animator anim;
     public int jumpForce, autoJumpForce;
+    public AudioSource jumpSource;
 
     
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class Salto : MonoBehaviour
             anim.SetBool("grounded", isGrounded);
             if(Input.GetButtonDown("Jump"))
             {
+                jumpSource.Play();
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 
             }

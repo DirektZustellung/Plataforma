@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
-    
+
+    public bool win,finish;
     public bool powerUp = false;
     public int puntosEnemgos = 50;
     public int puntosCoin = 10;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     
     public int vidas=3;
     
-    public int puntuacion=5;
+    public int puntuacion=0;
     
     public int coins;
     

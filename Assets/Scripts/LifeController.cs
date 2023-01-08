@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeController : MonoBehaviour
 {
@@ -14,9 +15,10 @@ public class LifeController : MonoBehaviour
     public Transform respawn;
     Rigidbody2D rb;
     Animator anim;
-    
+    public AudioSource powerSource;
 
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class LifeController : MonoBehaviour
             if (GameManager.instance.powerUp)
             {
                 GameManager.instance.powerUp = false;
+                powerSource.Play();
                 anim.SetBool("upgrading", GameManager.instance.powerUp);
                 //rb.gameObject.SetActive(false);
                 gameObject.GetComponent<PlayerConfig>().MarioConfig();
@@ -68,8 +71,9 @@ public class LifeController : MonoBehaviour
                 rb.velocity = new Vector2(0, 0);
                 transform.position = respawn.position;
                 lifes_current = lifes_max;
+                GameManager.instance.key = false;
                 GameManager gameManager = FindObjectOfType<GameManager>();
-                gameManager.LoadScene("Nivel1");
+                gameManager.LoadScene(SceneManager.GetActiveScene().name);
                 break;
             case DeathMode.ReloadScene:
                 break;
